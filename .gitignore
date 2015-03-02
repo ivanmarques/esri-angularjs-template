@@ -1,0 +1,16 @@
+node_modules/*
+*/bower_components/*
+bower_components/*
+output/*
+*~
+*.swp
+.cache/*
+.sass_cache/*
+.tmp/*
+.grunt/*
+.idea/*
+build/*
+dist/*
+*.lnk
+*ugly.js
+.sass-cache

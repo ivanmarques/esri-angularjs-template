@@ -1,0 +1,580 @@
+/********************* Colour reference chart****************
+*************************** comment ********* colour ******** 
+
+box background colour       bbg              #0B610B   11 97 11 #26544F
+box border colour           bb               #abcdef
+box text colour             bt               #123456
+
+/******** GENERAL ***********/
+
+@import "compass/css3";
+$mainColor: #060606;
+$white: #ffffff;
+$buttonGrey: #7ca1a4;
+$buttonGreyActive:#333;
+$screen-sm: 768px;
+/* 
+    row-table from http://codepen.io/unavezfui/pen/JzcGx 
+*/
+@mixin row-table {
+  display: table !important;
+
+  > [class*="col-"]{
+    float:none!important;
+    display: table-cell!important;
+    vertical-align: middle;
+    &.td-top{ vertical-align: top!important; }
+    &.td-bottom { vertical-align: bottom!important; }
+  }  
+}
+.row-table.row-table-xs {
+  @include row-table;
+}
+@media (min-width: $screen-sm) {
+  .row-table {
+    @include row-table;
+  }
+};
+
+html, body {
+    font-family: 'Segoe UI','Oxygen', sans-serif;
+    font-size: 1em;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    color: white;
+}
+
+#map , #mapRight , #mapEarth{
+    position: absolute;
+    padding: 0;
+    top: 0px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    &.splitView {
+        position: absolute;
+        padding: 0;
+        top: 0px;
+        left: 0;
+        right: 49%;
+        width: 50%;
+        bottom:0;
+    }
+    
+}
+
+#mapRight , #mapEarth{
+    &.splitView{
+        position: absolute;
+        padding: 0;
+        top: 0px;
+        left: 49%;
+        right: 0;
+        bottom:0;
+    }   
+}
+
+div.search-container {
+    position: absolute;
+    display: block;
+    z-index: 2;
+    right: 5px;
+    width: 350px;
+    top: 7px !important;
+}
+
+input.search-input {
+    position: relative;
+    z-index: 3;
+    width: 350px;
+    font-size: 1.2em;
+    border: 2px solid #34495e;
+    float: right;
+    line-height: 25px;
+    padding-left: 30px;
+    color: gray;
+    background-image: url("img/search-icon.png");
+    background-repeat: no-repeat;
+    background-position-x: 0.5em;
+    background-position-y: 50%;
+}
+
+
+
+
+.map {
+    padding: 0px;
+    /* height: 100%; */
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    width: 100%;
+    /*z-index: -1;
+     float: left; */
+}
+
+#separadorcentral {
+    height: 100%;
+    width: 0.2%;
+    float: left;
+    background-color: rgb(38,84,79);
+}
+
+#heatmapArea {
+    width: 100%;
+    padding: 0;
+    height: 100%;
+    cursor: pointer;
+    position: relative;
+}
+
+.dateBlock {
+    z-index: 10;
+    background-color: rgb(38,84,79);
+    position: absolute;
+    width: 200px;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+#dateLeft {
+    left: 25%;
+    bottom: 0px;
+    margin-left: -125px;
+}
+
+#dateRight {
+    right: 25%;
+    bottom: 0px;
+    margin-right: -125px;
+    z-index:10;
+}
+
+
+
+.raphael-icon {
+    font-size: 1em;
+}
+
+.block {
+    font-size: 0.85em;
+    margin-left: 18px;
+}
+
+.spantd {
+    text-align: center;
+    margin-left: 0px;
+    float:none;
+    cursor:default;
+}
+
+.spantdminus {
+    /*width: 10px;*/
+    cursor:pointer;
+    margin-left: 0px;
+    float:none;
+}
+
+.spantdplus {
+    /*width: 10px;*/
+    cursor:pointer;
+    margin-left: 0px;
+    float:none;
+}
+
+.layercheckbox {
+    font-size: 1.1em;
+    margin-right: 10px;
+}
+
+.select {
+    width: 350px;
+    height: 20px;
+    border-radius: 5px;
+    margin-top: 5px;
+    font-size: 0.7em;
+    padding: 0px;
+    position:absolute;
+    left:50%;
+    top:10px;
+    margin-left:-175px;
+}
+.dateSeparator {
+    width: 50px;
+    height: 10px;
+    margin-left: 0px;
+    float:none;
+}
+
+
+.layers {
+    position: absolute;
+    right: 0px;
+    top: 52px;
+    background-color: /*bbg*/ rgba(38,84,79,1);
+    z-index:10;
+    width:250px;
+    padding: 10px;
+    padding-left:25px;
+    padding-bottom:15px;
+}
+#separator {
+    background-color: white;
+    height:1px;
+    width:230px;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+.map-hidden {
+    display: none;
+}
+
+.containerRight {
+    padding: 0px;
+    height: 100%;
+    width: 49.9%;
+    z-index: -1;
+    float: left;
+}
+#statsRight {
+    margin-top: 52px;
+    background-color:white;
+    color:black;
+    z-index:10;
+    cursor:default;
+    padding-top:30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.transparent {
+    background-color: rgba(0,0,0,0);
+    border-color: rgba(0,0,0,0);
+    background-image: none;
+}
+
+    .transparent:hover {
+        background-color: rgba(0,0,0,0);
+    }
+
+/***************ICONS RAPHAEL*******************/
+.raphael-icon {
+    font-weight: normal;
+    font-style: normal;
+    line-height: normal;
+    font-family: 'RaphaelIcons';
+    font-size: 1.4em;
+    position: relative;
+    top: 0.1em;
+}
+
+.hidden {
+    display: none;
+}
+.logo{
+    padding:5px;
+}
+.logo-med {
+    display: none;
+}
+
+
+.config-button {
+    padding:7px 0;
+}
+
+#navigationToolbar {
+    position: absolute;
+    z-index: 20;
+    top: 151px;
+    left: 20px;
+    border: 0px;
+    background-color: rgb(38,84,79);
+    color: rgb(255,255,255);
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+    -o-border-radius: 0px;
+    -moz-box-shadow: 0 0 0em #BBBBBB;
+    -webkit-box-shadow: 0 0 0em #BBBBBB;
+    width: 30px;
+    display: none;
+}
+
+    #navigationToolbar:hover {
+        cursor: pointer;
+    }
+
+#iconcrimegeo {
+    height:40px;
+    padding-top:5px;
+}
+
+
+.a-l { text-align: left; }
+.a-r { text-align: right; }
+.a-c { text-align: center; }
+
+.f-l { float: left; }
+.f-r { float: right; }
+.f-n { float: none; }
+
+
+.navbar {
+    border-color: #101010;
+    margin-bottom: 0;
+    color: #BDBDBD;
+    background-color: #060606;
+    @include border-radius(0);
+    .brand {
+    padding: 0;
+    font-size: 24px;
+    font-weight: normal;
+    margin: 0 0 0 5px;
+    line-height: 220%;
+    }
+}
+
+.btn-custom {
+    background-color:transparent;
+    border:none;
+    box-shadow: none;
+    color:$white;
+    &:hover , &.active {
+     background-color: shade($mainColor, 30);   
+     color:$buttonGreyActive;
+    }
+    &:focus,&:link, &:active,&:visited {
+     color:$white;
+    }
+}
+
+.esriSimpleSlider {
+    top: 65px !IMPORTANT;
+}
+
+.top-bar-icon {
+    padding-right: 3px;
+}
+
+.btn-top-right {
+    padding: 4px 0px;
+}
+
+
+
+
+
+
+.count-big {
+    font-size: 2.8em;
+    font-weight: 600;
+    /*background-color: rgb(38,84,79);*/
+    color:rgb(38,84,79);
+    margin-top:5px;
+    /*margin-bottom:5px;*/
+    min-width:60px;
+    float:left;
+    padding-top:20px;
+    /*padding-bottom:30px;*/
+    align-content:center;   
+}
+.count {
+    font-size: 2em;
+    font-weight: 600;
+    /*background-color: rgb(38,84,79);*/
+    color:rgb(38,84,79);
+    margin-top:5px;
+    margin-bottom:5px;
+    margin-left:10px;
+    /*min-width:40px;*/
+    float:left;
+    padding-top:10px;
+    padding-bottom:15px;
+    align-content:center;   
+}
+
+.percent {
+    font-size: 1.6em;
+    font-weight: 600;    
+    margin-top:5px;
+    padding-top:10px;
+}
+.percent-green {
+    background-color: white;
+    color:green;
+}
+.percent-red {
+    background-color: white;
+    color:red;
+}
+.label-main {
+    padding-top: 35px;
+}
+#main-row {
+    margin-bottom: 30px;
+}
+.row {
+    padding-bottom: 10px;
+}
+.margin-left{    
+    margin-left:10px;
+}
+
+
+.ui-tooltip {
+    font-size:0.7em !IMPORTANT;
+    font-weight:300 !IMPORTANT;
+    padding:3px !IMPORTANT;
+}
+.box-header-right {
+    display: inline-block;
+    float: right;
+    vertical-align: top;
+}
+
+
+#user-bar {
+    position: absolute;
+    width: 100%;
+    bottom: 130px;
+    height:60px;
+    left: 0;
+    padding: 0 0 0;
+    z-index: 41;
+    background-color: transparent;
+    .btn {
+        height: 120px;
+        float: none;
+        border-radius: 200px;
+        background-color: #060606;
+        width: 120px;
+        @include opacity(0.7);
+        &.active {
+            @include opacity(1);
+        }
+    }
+}
+
+#basemapGallery{
+    position:absolute;
+    top:10px;
+    right:0;
+    height:150px;
+    width:100px;
+}
+
+
+.toggle-panel {
+    position:absolute;
+    right:0;
+    top:0;
+    bottom:0;
+    bottom:150px;
+    width:220px;
+    padding:5px;
+    background-color:#000;
+    z-index:50;
+    ul {
+        margin:0;
+        padding:0;
+        list-style-type: none;
+    }
+    li {
+        margin: 0 0 5px;
+        padding:0;
+        a.btn{
+            color: #fff;
+            text-transform: uppercase;
+        }
+        &.active {
+            
+        }
+    }
+    .btn-dark {
+        text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+        background-color: #363636;
+         &.active{
+            color:$mainColor;
+         }
+    }
+}
+#popup {
+    .panel-heading{
+        background-color:#00A2E0;
+        border-color:#00A2E0;
+        @include opacity(0.7);
+        h2 {
+            color:#fff;   
+            margin:5px 0 0 0;
+            padding: 0;
+            font-size:18px;
+        }
+        a.btn {
+            padding:2px;
+        }
+    }
+    background-color: #fff;
+    position:absolute;
+    bottom:50%;
+    width:30%;
+    min-width: 400px;
+    left:35%;
+    z-index:100;
+    .panel-body{
+        font-family: Arial;
+        color:#222;
+        padding:10px;
+        font-size:14px;
+        p{
+            padding:3px 5px;
+            margin:0 0 5px;
+        }
+    }
+    img {
+        max-width: 100%;   
+    }
+}
+
+/* Niveles de IVIVE */
+.ivive {
+    padding:3px;
+    border-bottom:dotted 1px #eee;
+}
+.ivive-low{
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+.ivive-mid {
+    background-color: #f0ad4e;
+    border-color: #eea236;
+    color:#fff;
+}
+.ivive-high {
+    background-color:#d43f3a;
+    border-color:#d9534f;
+    color:#fff;
+}
+.ivive-very-high {
+    background-color:#222;
+    color:#f0f0f0;
+}
