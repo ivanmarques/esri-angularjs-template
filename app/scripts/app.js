@@ -6,11 +6,11 @@
 
 ], function(angular){*/
 var dependencies = [
-    'ui.bootstrap',
-    'ui.bootstrap.tpls',
-    'ngCookies',
-    'ngResource',
-    'ngSanitize',
+    //'ui.bootstrap',
+    //'ui.bootstrap.tpls',
+    //'ngCookies',
+    //'ngResource',
+    //'ngSanitize',
     'ngRoute',
     'ngAnimate',
     'ngLodash'
