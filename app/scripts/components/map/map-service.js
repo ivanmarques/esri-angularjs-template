@@ -1,4 +1,4 @@
-(function(angular, define) {
+(function (angular, define) {
     'use strict';
     var dependencies = [
         'esri/map',
@@ -13,8 +13,6 @@
         var map, operationalLayers, baseMaps;
 
         /* Private Methods */
-
-        
         function mapConfigs(extent) {
             var initialExtent = new esri.geometry.Extent(extent);
             return {
@@ -23,9 +21,11 @@
                 maxZoom: 25
             };
         }
-        function setBaseMaps (basemaps) {
+        
+        function setBaseMaps(basemaps) {
             baseMaps = basemaps;
         }
+        
         function initBaseMaps() {
             angular.forEach(baseMaps, function (value) {
                 var layer = value, lyr;
@@ -71,7 +71,7 @@
             });
         }
 
-        function setOperationalLayers (layers) {
+        function setOperationalLayers(layers) {
             operationalLayers = layers;
         }
 
@@ -84,19 +84,9 @@
             }
         }
 
-        function initOperationalLayers () {
-            angular.forEach(operationalLayers, function(value) {
-                if(value.type.toLowerCase() === 'folder') {
-                    angular.forEach(value.items, function(layer) {
-                        setLayerToMap(layer);
-                    });
-                } else {
-                    setLayerToMap(value);
-                }
-            });
-        }
+        
 
-        function setLayerToMap (layer) {
+        function setLayerToMap(layer) {
             var lyr;
             switch (layer.type) {
             case 'ArcGISDynamicMapServiceLayer':
@@ -153,8 +143,7 @@
                         visibleLayers: layer.visibleLayers,
                         opacity: layer.opacity,
                         visible: layer.visible
-                    }
-                );
+                    });
                 if (layer.version !== null) {
                     wmsLayer.version = layer.version;
                 }
@@ -163,55 +152,77 @@
             }
         }
 
-        function getLayerVisibility (id) {
-            try{
+        function initOperationalLayers() {
+            angular.forEach(operationalLayers, function (value) {
+                if (value.type.toLowerCase() === 'folder') {
+                    angular.forEach(value.items, function (layer) {
+                        setLayerToMap(layer);
+                    });
+                } else {
+                    setLayerToMap(value);
+                }
+            });
+        }
+        
+        function getLayerVisibility(id) {
+            try {
                 return map.getLayer(id).visible;
-            }catch(e){
+            } catch (e) {
                 return false;
             }
         }
 
         var app = angular.module("app");
-        app.factory('MapService', ['$rootScope', 'AppConfig', function($rootScope, AppConfig) {
+        app.factory('MapService', ['$rootScope', 'AppConfig', function ($rootScope, AppConfig) {
             return {
                 dataPopUp: {},
-                GetDataPopup: function() {
+                GetDataPopup: function () {
                     return this.dataPopUp;
                 },
-                MapGen:function(elem ,extent , basemaps , layers) {
-                    generateMap(elem ,extent);
+                MapGen: function (elem, extent, basemaps, layers) {
+                    generateMap(elem, extent);
                     setBaseMaps(basemaps);
                     setOperationalLayers(layers);
                     initBaseMaps();
                     initOperationalLayers();
                 },
-
-
-                GetBaseMaps:function() {
+                SetBaseMaps: function (basemaps) {
+                    baseMaps = basemaps;
+                },
+                GetBaseMaps: function () {
                     return baseMaps;
                 },
-                GetOperationalLayers:function() {
+                GetOperationalLayers: function () {
                     return operationalLayers;
                 },
-                SetBaseMap: function (id){
+                SetBaseMap: function (id) {
                     setBaseMap(id);
                 },
-                SetLayer:function(id){
+                SetLayer: function (id) {
                     setLayer(id);
                 },
-                GetLayerVisibility: function(id) {
+                GetLayerVisibility: function (id) {
                     return getLayerVisibility(id);
                 },
-                InitOperationalLayers:function (layers){
+                InitOperationalLayers: function (layers) {
                     initLayers(layers);
                 },
-                InitMapBaseLayers: function(){
+                InitMapBaseLayers: function () {
                     initBaseMaps();
                 },
-                GetLayer:function(id){
+                GetLayer: function (id) {
                     return map.getLayer(id);
                 },
+                
+                //Methods for testing pourposes
+                
+                SetMap: function (map) {
+                    map = map;   
+                },
+                GetMap: function () {
+                    return map;
+                }
             };
         }]);
     });
-}(angular,define));
+}(angular, define));

@@ -1,5 +1,5 @@
 /*global angular:true */
-(function(angular, define){
+(function (angular, define) {
     'use strict';
     require([
         'dojo/ready'

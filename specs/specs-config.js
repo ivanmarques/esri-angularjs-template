@@ -47,8 +47,8 @@ require([
 	'angular',
     'app/scripts/app',
 	'app/scripts/config',
-    'app/scripts/components/map/simple-service',
-    'app/scripts/components/map/MapService',
+    'app/scripts/components/map/map-service',
+    'app/scripts/theme/templates/templates',
     'esri/map',
     'esri/layers/ArcGISDynamicMapServiceLayer',
     'esri/layers/ArcGISTiledMapServiceLayer'

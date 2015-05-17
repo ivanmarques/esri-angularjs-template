@@ -9,12 +9,11 @@ module.exports = function(config){
     files : [
       {pattern: 'bower_components/angular/angular.js', included: true},
       {pattern: 'bower_components/angular-route/angular-route.js', included: true},
-      {pattern: 'bower_components/angular-animate/angular-animate.js', included: true},
       {pattern: 'bower_components/angular-mocks/angular-mocks.js', included: true},
       {pattern: 'app/scripts/app.js', included: true},
       {pattern: 'app/scripts/config.js', included: true},
       {pattern: 'app/scripts/components/**/*.js', included: true},
-      {pattern: 'app/scripts/view*/**/*.js', included: false},
+      {pattern: 'app/scripts/theme/**/*.js', included: true},
       
       
       // needs to be last http://karma-runner.github.io/0.12/plus/requirejs.html
