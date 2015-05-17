@@ -1,7 +1,7 @@
 (function(angular){
     "use strict";
     var app = angular.module("app");
-            app.value("AppConfig", function(){
+            app.factory("AppConfig", function(){
             return {
 
                     initialExtent: {

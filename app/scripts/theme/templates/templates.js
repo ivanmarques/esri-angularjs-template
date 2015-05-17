@@ -1,0 +1,2 @@
+angular.module("theme.templates", []).run(["$templateCache", function($templateCache) {$templateCache.put("basemaps.html","<div ng-controller=\"BasemapsController\"><ul class=\"basemaps-list\"><li ng-repeat=\"item in BaseMaps(false)\" ng-class=\"{active: GetLayerVisibility(false,item.id) , last:$last}\"><a ng-click=\"ChangeBaseMap(item.id)\" class=\"btn btn-inverse btn-block\" ng-class=\"{active: GetLayerVisibility(item.id)}\"><span class=\"basemapLabel\">{{item.label}}</span></a></li></ul></div>");
+$templateCache.put("index.html","<p>index page</p>");}]);

@@ -1,0 +1,23 @@
+// buttons.scss
+
+$inverse-bg: #222;
+$inverse-bc: #999;
+
+.btn-inverse,
+.btn-inverse:hover {
+  text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+  color: #fff;
+}
+
+.btn-inverse:hover {
+  background-color:lighten($inverse-bg,10)
+}
+
+.btn-inverse {
+  background-color:$inverse-bg;
+  border-color:$inverse-bc;
+  &.active {
+    background-color:lighten($inverse-bg,20);
+  }
+}
+

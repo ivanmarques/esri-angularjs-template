@@ -9,7 +9,6 @@ module.exports = function(config){
     files : [
       {pattern: 'bower_components/angular/angular.js', included: true},
       {pattern: 'bower_components/angular-route/angular-route.js', included: true},
-      {pattern: 'bower_components/ng-lodash/build/ng-lodash.js', included: true},
       {pattern: 'bower_components/angular-animate/angular-animate.js', included: true},
       {pattern: 'bower_components/angular-mocks/angular-mocks.js', included: true},
       {pattern: 'app/scripts/app.js', included: true},
