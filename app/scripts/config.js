@@ -3,12 +3,11 @@
     var app = angular.module("app");
     app.factory("AppConfig", function () {
         return {
-
             initialExtent: {
-                "xmin": -11942105,
-                "ymin": 4767727,
-                "xmax": -11801231,
-                "ymax": 4859219,
+                "xmin": -738387.10,
+                "ymin": 5182411.57,
+                "xmax": -463213.80,
+                "ymax": 5365860.44,
                 "spatialReference": { "wkid": 102100 }
             },
             basemaps: [
