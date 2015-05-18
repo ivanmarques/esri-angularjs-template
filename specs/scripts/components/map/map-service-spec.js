@@ -39,7 +39,7 @@ define([
                 }];
         }));
 
-        it('', function() {
+        it('GetBaseMaps Should return an array of basemaps', function() {
             var service = getService();
             service.SetMap(map);
             var nullbasemaps = service.GetBaseMaps();
