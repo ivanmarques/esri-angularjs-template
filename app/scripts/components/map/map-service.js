@@ -192,6 +192,9 @@
                 GetBaseMaps: function () {
                     return baseMaps;
                 },
+                SetOperationalLayers: function (layersObj) {
+                    operationalLayers = layersObj;
+                },
                 GetOperationalLayers: function () {
                     return operationalLayers;
                 },
@@ -205,7 +208,7 @@
                     return getLayerVisibility(id);
                 },
                 InitOperationalLayers: function (layers) {
-                    initLayers(layers);
+                    initOperationalLayers(layers);
                 },
                 InitMapBaseLayers: function () {
                     initBaseMaps();
@@ -216,8 +219,8 @@
                 
                 //Methods for testing pourposes
                 
-                SetMap: function (map) {
-                    map = map;   
+                SetMap: function (mapObj) {
+                    map = mapObj;   
                 },
                 GetMap: function () {
                     return map;
