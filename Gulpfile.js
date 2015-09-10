@@ -8,6 +8,7 @@ gp = require('gulp-load-plugins')(),
 mainBowerFiles = require('main-bower-files'),
 del = require('del'),
 jsFilter = gp.filter('*.js'),
+webserver = require('gulp-webserver');
 cssFilter = gp.filter('*.css'),
 fontFilter = gp.filter(['*.eot', '*.woff','*.woff2', '*.svg', '*.ttf']),
 paths = {
@@ -142,3 +143,13 @@ gulp.task('watch', function() {
     gulp.watch('app/assets/css/img/**/*', ['images']);
 
 });
+
+gulp.task('webserver', function() {
+  gulp.src('.')
+    .pipe(webserver({
+      livereload: true,
+      directoryListing: false,
+      open: true
+    }));
+});
+

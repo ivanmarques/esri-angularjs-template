@@ -1,7 +1,7 @@
 (function (angular) {
     "use strict";
     var app = angular.module("app");
-    app.factory("AppConfig", function () {
+    app.value("AppConfig", function () {
         return {
             initialExtent: {
                 "xmin": -738387.10,

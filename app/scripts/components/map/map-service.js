@@ -11,7 +11,7 @@
     require(dependencies, function (Map, ArcGISDynamicMapServiceLayer, ArcGISTiledMapServiceLayer, FeatureLayer, WMSLayer, InfoTemplate) {
 
         var map, operationalLayers, baseMaps;
-
+       
         /* Private Methods */
         function mapConfigs(extent) {
             var initialExtent = new esri.geometry.Extent(extent);
@@ -87,22 +87,22 @@
         
 
         function setLayerToMap(layer) {
-            var lyr;
+            var lyr = new genericLayer(layer);
             switch (layer.type) {
-            case 'ArcGISDynamicMapServiceLayer':
-                lyr = new ArcGISDynamicMapServiceLayer(layer.url,
-                    {
-                        id: layer.id,
-                        visible: layer.visible,
-                        opacity: layer.opacity
-                    });
-                lyr.setVisibleLayers(layer.visibleLayers);
-                //console.log('Added ' + layer.id + ' to the map...');
-                if (typeof layer.layerDefinitions !== "undefined") { // optional key
-                    lyr.setLayerDefinitions(layer.layerDefinitions);
-                }
-                map.addLayer(lyr, layer.index);
-                break;
+                case 'ArcGISDynamicMapServiceLayer':
+                    lyr = new ArcGISDynamicMapServiceLayer(layer.url,
+                        {
+                            id: layer.id,
+                            visible: layer.visible,
+                            opacity: layer.opacity
+                        });
+                    lyr.setVisibleLayers(layer.visibleLayers);
+                    //console.log('Added ' + layer.id + ' to the map...');
+                    if (typeof layer.layerDefinitions !== "undefined") { // optional key
+                        lyr.setLayerDefinitions(layer.layerDefinitions);
+                    }
+                    map.addLayer(lyr, layer.index);
+                    break;
             case 'FeatureLayer':
                 var infoTemplate = null;
                 if (layer.infoTemplateContent) {

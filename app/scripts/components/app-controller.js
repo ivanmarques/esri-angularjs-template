@@ -4,9 +4,7 @@
 /*global define:true*/
 (function (angular) {
     "use strict";
-    
-
-    
+      
 
     function setMapHeight() {
         angular.element(document.querySelector('#map-container'))[0].style.height = (angular.element(document.querySelector('body'))[0].offsetHeight - angular.element(document.querySelector('.navbar'))[0].offsetHeight) + "px";
@@ -26,23 +24,23 @@
     var app = angular.module("app");
     app.controller('AppCtrl', ['$scope', 'MapService', 'AppConfig', function ($scope,  MapService, AppConfig) {
         initMap(MapService, AppConfig);
+        var basemaps = MapService.GetBaseMaps();
+        var layers = MapService.GetOperationalLayers();
+
         $scope.BaseMaps = function () {
-            return MapService.GetBaseMaps();
+            return basemaps;
         };
+
         $scope.Layers = function () {
-            return MapService.GetOperationalLayers();
+            return layers;
         };
+
         $scope.ChangeBaseMap = function (id) {
             return MapService.SetBaseMap(id);
         };
+
         $scope.GetLayerVisibility = function (id) {
             return MapService.getLayerVisibility(id);
-            /*var lyr =  MapService.GetLayer(id);
-            if(lyr != null){
-                return lyr.visible;
-            }else{
-                return false;
-            }*/
         };
     }]).config(['$provide', '$routeProvider', function ($provide, $routeProvider) {
         $routeProvider
